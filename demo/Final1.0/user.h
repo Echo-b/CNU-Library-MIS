@@ -13,6 +13,7 @@
 #include "UserPerson.h"
 #include "mainwindow.h"
 #include <QDateTime>
+#include "userchangepassword.h"
 
 namespace Ui {
 class User;
@@ -42,6 +43,8 @@ private slots:
     void on_actionNewReading_triggered();
 
     void on_actionTotalBorrowBookRecord_triggered();
+
+    void on_actionchangePassword_triggered();
 
 private:
     Ui::User *ui;
