@@ -270,3 +270,11 @@ void User::on_actionTotalBorrowBookRecord_triggered()
     view->resize(1171,600);
     view->show();
 }
+
+
+void User::on_actionchangePassword_triggered()
+{
+    UserChangePassword *ucp = new UserChangePassword(usertable);
+    ucp->show();
+    ucp->exec();
+}

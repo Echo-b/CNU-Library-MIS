@@ -26,7 +26,8 @@ SOURCES += \
     user.cpp \
     qcustomplot.cpp \
     paint.cpp \
-    adminchangepassword.cpp
+    adminchangepassword.cpp \
+    userchangepassword.cpp
 
 HEADERS += \
     Person.h \
@@ -47,7 +48,8 @@ HEADERS += \
     qcustomplot.h \
     paint.h \
     adminchangepassword.h \
-    AdiminsterePerson.h
+    AdiminsterePerson.h \
+    userchangepassword.h
 
 FORMS += \
     addbook.ui \
@@ -57,7 +59,8 @@ FORMS += \
     search.ui \
     searchbook.ui \
     user.ui \
-    adminchangepassword.ui
+    adminchangepassword.ui \
+    userchangepassword.ui
 
 
 # Default rules for deployment.
