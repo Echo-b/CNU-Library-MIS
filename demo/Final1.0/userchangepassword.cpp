@@ -1,5 +1,4 @@
 #include "userchangepassword.h"
-#include "ui_userchangepassword.h"
 #include <QMessageBox>
 
 UserChangePassword::UserChangePassword(UserTable *PTable,QWidget *parent) :
