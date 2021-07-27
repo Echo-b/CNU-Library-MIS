@@ -193,6 +193,11 @@ public:
     }
   int borrowBook(string bookID, BookTable bookTable,int maxBorrowDay = 30)
   {
+      for(unsigned int i = 0; i < borrowInfor.size(); i++){
+          if(borrowInfor[i].getBorrowTime().daysTo(QDateTime::currentDateTime()) > maxBorrowDay){
+              return 4; // 逾期未还不可借
+          }
+      }
       int index=bookTable.searchBookFromID(bookID);
       if (index != -1)
       {
@@ -238,7 +243,15 @@ public:
       }
 
 
-
+    bool ifDueSoon() // 判断是否有书籍即将到期未还，如有，在用户登录时弹窗提醒
+    {
+        for(unsigned int i = 0; i < borrowInfor.size(); i++){
+            if(borrowInfor[i].getBorrowTime().daysTo(QDateTime::currentDateTime()) > 26){
+                return true;
+            }
+        }
+        return false;
+    }
 };
 
 #endif // USERPERSON_H

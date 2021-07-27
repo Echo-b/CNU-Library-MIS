@@ -16,6 +16,10 @@ User::User(UserTable *PTable, QWidget *parent) :
     this->usertable = PTable;
     init();
     showDateTable();
+    if(userperson->ifDueSoon())
+    {
+        QMessageBox::information(this,"到期提醒","您有书籍即将到期，请您注意归还！");
+    }
 }
 void User::init(){
     bookTable=new BookTable;
@@ -178,8 +182,11 @@ void User::borrowBook(QTableView *view){
         bookTable->getBookTable()[locate]->setBookBorrowOutNum(++currentNum);
         QMessageBox::information(this,"借书","借书成功");
     }
-    else if(flag==0&&borrowflag==1){
+    else if(flag==0&&borrowflag==3){
         QMessageBox::information(this,"借书","该书不存在");
+    }
+    else if(flag==0&&borrowflag==4){
+        QMessageBox::information(this,"借书","您有逾期未还的书籍，不能借书！");
     }
 //     showDateTable();
       bookTable->writeFile("book.txt");
