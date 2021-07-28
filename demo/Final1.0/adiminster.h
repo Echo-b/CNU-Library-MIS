@@ -12,6 +12,7 @@
 #include <QAction>
 #include <QInputDialog>
 #include <QTableView>
+#include <QFileDialog>
 #include <QDebug>
 #include "searchbook.h"
 #include "adduser.h"
@@ -79,6 +80,8 @@ private slots:
     void on_actionchangeUser_2_triggered();
 
     void on_action_triggered();
+
+    void on_action_2_triggered();
 
 private:
     Ui::Adiminster *ui;

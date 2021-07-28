@@ -112,7 +112,7 @@
      <x>0</x>
      <y>0</y>
      <width>1420</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -138,6 +138,7 @@
     <addaction name="actionuserBorrowRanking"/>
     <addaction name="actionuserCollegeRanking"/>
     <addaction name="actionGenderReadingComparation"/>
+    <addaction name="action_2"/>
    </widget>
    <widget class="QMenu" name="menu_4">
     <property name="title">
@@ -211,14 +212,17 @@
     <string>男女阅读量对比</string>
    </property>
   </action>
-  <action name="actionchangeUserPassword">
-   <property name="text">
-    <string>修改用户密码</string>
-   </property>
-  </action>
   <action name="action">
    <property name="text">
     <string>查找老师</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>图片导出</string>
+   </property>
+   <property name="toolTip">
+    <string>image_output</string>
    </property>
   </action>
  </widget>

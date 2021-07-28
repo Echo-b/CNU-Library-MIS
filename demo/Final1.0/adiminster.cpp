@@ -614,3 +614,15 @@ void Adiminster::on_action_triggered()
 {
     searchTea();
 }
+
+void Adiminster::on_action_2_triggered()
+{
+    QString savePath = QFileDialog::getSaveFileName(this,tr("Save Image"),"",tr("Images (*.png *.bmp *.jpg)")); //选择路径
+    if(ui->drawPaint->grab().save(QString(savePath))){
+        QMessageBox::information(this,"导出图片","图片导出成功");
+    }
+    else{
+        QMessageBox::information(this,"导出图片","图片导出失败");
+    }
+    qDebug()<<"output the picture success";
+}
