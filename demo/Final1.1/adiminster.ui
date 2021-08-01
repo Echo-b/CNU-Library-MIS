@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Adiminster</class>
+ <widget class="QMainWindow" name="Adiminster">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1420</width>
+    <height>826</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="widget_4" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>1511</width>
+      <height>881</height>
+     </rect>
+    </property>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1651</width>
+       <height>891</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>用户界面</string>
+      </attribute>
+      <widget class="QTableView" name="userDataTableView">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1451</width>
+         <height>771</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>图书界面</string>
+      </attribute>
+      <widget class="QTableView" name="bookDataTableView">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1371</width>
+         <height>781</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>统计界面</string>
+      </attribute>
+      <widget class="QTableView" name="countTableView">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1511</width>
+         <height>841</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QCustomPlot" name="drawPaint" native="true">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>10</y>
+         <width>1011</width>
+         <height>661</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="drawBtn">
+       <property name="geometry">
+        <rect>
+         <x>1140</x>
+         <y>10</y>
+         <width>101</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>绘制统计结果</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1420</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>用户管理</string>
+    </property>
+    <addaction name="actionaddUser"/>
+    <addaction name="actionsearchUser"/>
+    <addaction name="action"/>
+    <addaction name="patchAppendUser_action"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>图书管理</string>
+    </property>
+    <addaction name="actionaddBook"/>
+    <addaction name="actionsearchBook"/>
+    <addaction name="batchAppendBook_action"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>统计</string>
+    </property>
+    <addaction name="actionborrowBookRanking"/>
+    <addaction name="actionuserBorrowRanking"/>
+    <addaction name="actionuserCollegeRanking"/>
+    <addaction name="actionGenderReadingComparation"/>
+    <addaction name="action_2"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>设置</string>
+    </property>
+    <addaction name="actionchangeAdmin"/>
+    <addaction name="actionchangeUser_2"/>
+    <addaction name="actionexit"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+   <addaction name="menu_4"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionaddUser">
+   <property name="text">
+    <string>增加用户</string>
+   </property>
+  </action>
+  <action name="actionsearchUser">
+   <property name="text">
+    <string>查找学生</string>
+   </property>
+   <property name="toolTip">
+    <string>查找学生</string>
+   </property>
+  </action>
+  <action name="actionaddBook">
+   <property name="text">
+    <string>添加书籍</string>
+   </property>
+  </action>
+  <action name="actionsearchBook">
+   <property name="text">
+    <string>查找书籍</string>
+   </property>
+  </action>
+  <action name="actionborrowBookRanking">
+   <property name="text">
+    <string>借阅总排行榜</string>
+   </property>
+  </action>
+  <action name="actionuserBorrowRanking">
+   <property name="text">
+    <string>用户借阅排行榜</string>
+   </property>
+  </action>
+  <action name="actionuserCollegeRanking">
+   <property name="text">
+    <string>学院借阅排行榜</string>
+   </property>
+  </action>
+  <action name="actionchangeAdmin">
+   <property name="text">
+    <string>切换账号</string>
+   </property>
+  </action>
+  <action name="actionchangeUser_2">
+   <property name="text">
+    <string>修改密码</string>
+   </property>
+  </action>
+  <action name="actionexit">
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </action>
+  <action name="actionGenderReadingComparation">
+   <property name="text">
+    <string>男女阅读量对比</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>查找老师</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>图片导出</string>
+   </property>
+   <property name="toolTip">
+    <string>image_output</string>
+   </property>
+  </action>
+  <action name="batchAppendBook_action">
+   <property name="text">
+    <string>批量追加书籍</string>
+   </property>
+  </action>
+  <action name="patchAppendUser_action">
+   <property name="text">
+    <string>批量追加用户</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

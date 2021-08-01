@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>CNUlibrary.jpg</file>
+        <file>background.png</file>
+        <file>bg.jpg</file>
+    </qresource>
+</RCC>
