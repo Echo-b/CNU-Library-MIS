@@ -31,7 +31,7 @@
      <x>0</x>
      <y>0</y>
      <width>1177</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -102,6 +102,11 @@
   <action name="actionNewReading">
    <property name="text">
     <string>新书导读</string>
+   </property>
+  </action>
+  <action name="reservationList">
+   <property name="text">
+    <string>预约列表</string>
    </property>
   </action>
   <action name="reservation">

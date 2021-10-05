@@ -1,10 +1,10 @@
 <RCC>
     <qresource prefix="/image">
         <file>CNUlibrary.jpg</file>
-        <file>login.jpg</file>
-        <file>slogan.jpg</file>
-        <file>slogan.png</file>
-        <file>blue.png</file>
         <file>background.png</file>
+        <file>bg.jpg</file>
+        <file>blue.png</file>
+        <file>login.jpg</file>
+        <file>slogan.png</file>
     </qresource>
 </RCC>

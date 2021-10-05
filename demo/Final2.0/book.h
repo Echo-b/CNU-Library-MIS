@@ -8,7 +8,6 @@
 #include <vector>
 #include <map>
 #include <fstream>
-#include <algorithm>
 #include <QVector>
 #define NOTFOUND -1
 using namespace std;
@@ -24,6 +23,7 @@ protected:
     string bookPubYear;   //出版年
     string bookPubMonth;  //出版月
     string bookPubDay;    //出版日
+
 public:
     Book() {}
     Book(string ISBNIn, string bookNameIn, string bookWriterIn, string bookPressIn, int bookTotalNumIn, int bookBorrowOutNumIn, string bookPubYearIn, string bookPubMonthIn, string bookPubDayIn)

@@ -28,6 +28,7 @@ public:
     void init();
     void showDateTable();
     void layData(vector <Book*>booklist,QTableView *view,int flag=0);
+    void layReservationData(vector <Book*>booklist,QTableView *view,int flag=0);
     void borrowBook(QTableView *view);
     void giveBackBook(QTableView *view);
     void reserveBook(QTableView *view);
@@ -49,6 +50,8 @@ private slots:
     void on_actionchangePassword_triggered();
 
     void on_reservation_triggered();
+
+//    void on_reservationList_triggered();
 
 private:
     Ui::User *ui;
