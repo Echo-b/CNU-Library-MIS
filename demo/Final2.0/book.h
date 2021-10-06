@@ -128,6 +128,10 @@ public:
     void WriteComment(string Comment){
         this->bookComment.push_back(Comment);
     }
+    vector<string> getComment(){
+        return this->bookComment;
+    }
+
 };
 class BookTable
 {

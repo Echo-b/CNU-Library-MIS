@@ -282,12 +282,24 @@ void User::showDateTable(){
 
 void User::commentBook(){
     QString info = QInputDialog::getMultiLineText(this, " 评价", "说点什么吧！");
-//    book->WriteComment(info.toStdString());
+    int index=ui->bookDataView->currentIndex().row();
+    booklist[index]->WriteComment(info.toStdString());
 }
 
 void User::showComment(){
-    QString comment = "haohaohaoaa";
-    QMessageBox::information(this,"评价",""+comment);
+//    QString comment = "haohaohaoaa";
+//    QMessageBox::information(this,"评价",""+comment);
+    QTextEdit *test = new QTextEdit;
+    test->setWindowTitle("评价");
+    int index=ui->bookDataView->currentIndex().row();
+    test->append("----------------------------------");
+    for(unsigned int i = 0;i<booklist[index]->getComment().size();i++){
+        QString str;
+        str = "评论"+QString::number(i+1)+":"+booklist[index]->getComment()[i].data();
+        test->append(str);
+        test->append("----------------------------------");
+    }
+    test->show();
 }
 
 void User::borrowBook(QTableView *view){
