@@ -99,6 +99,7 @@ void MainWindow::on_pushButton_2_clicked() //注册
                 message.setWindowIcon(*icon);
                 message.exec();
                 userlist.writeFile("student.txt", "teacher.txt");
+
             }
             else
             {

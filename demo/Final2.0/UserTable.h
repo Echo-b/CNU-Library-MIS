@@ -28,7 +28,7 @@ public:
         //readFile("student.txt", "teacher.txt");
     }
     ~UserTable() {
-//        stuAccount.write_file("stuAccount.txt");
+        stuAccount.write_file("stuAccount.txt");
         teaAccount.write_file("teaAccount.txt");
 //        writeFile("student.txt", "teacher.txt");
     }
