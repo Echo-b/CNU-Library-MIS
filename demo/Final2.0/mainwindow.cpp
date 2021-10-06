@@ -186,7 +186,8 @@ void MainWindow::on_pushButton_clicked() //登录
             message.setWindowIcon(*icon);
             message.exec();
             MainWindow::reject();
-            this->~MainWindow();
+            MainWindow::close();
+//            this->~MainWindow();
             User *user = new User(&this->userlist);
             user->show();
         }
@@ -207,6 +208,7 @@ void MainWindow::on_pushButton_clicked() //登录
             message.setWindowIcon(*icon);
             message.exec();
             MainWindow::reject();
+            MainWindow::close();
             User *user = new User(&this->userlist);
             user->show();
         }

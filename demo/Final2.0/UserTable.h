@@ -16,7 +16,7 @@ class UserTable
 private:
     vector<Student *> studentTable;
     vector<Teacher *> teacherTable;
-    UserPerson *pUser = NULL;
+    UserPerson *pUser = nullptr;
     int id_flag = -1;
     Account_group teaAccount;
     Account_group stuAccount;
@@ -25,7 +25,7 @@ public:
     UserTable() {
         stuAccount.read_file("stuAccount.txt");
         teaAccount.read_file("teaAccount.txt");
-//        readFile("student.txt", "teacher.txt");
+        readFile("student.txt", "teacher.txt");
     }
     ~UserTable() {
 //        stuAccount.write_file("stuAccount.txt");

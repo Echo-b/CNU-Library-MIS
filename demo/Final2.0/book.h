@@ -23,6 +23,7 @@ protected:
     string bookPubYear;   //出版年
     string bookPubMonth;  //出版月
     string bookPubDay;    //出版日
+    vector<string> bookComment;//评论
 
 public:
     Book() {}
@@ -123,6 +124,9 @@ public:
     inline void setBookDay(string bookPubDayIn)
     {
         this->bookPubDay=bookPubDayIn;
+    }
+    void WriteComment(string Comment){
+        this->bookComment.push_back(Comment);
     }
 };
 class BookTable

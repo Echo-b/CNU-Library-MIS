@@ -130,6 +130,11 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
     //    string bookPubDay;    //出版日
     vector<Book*>currentBorrowBook=userperson->getBorrowBook(*bookTable);
     vector<int> currentBookIndex;
+    vector <string> reservationIsbn = userperson->getReservation();//预约书籍的编号
+    vector <int> reservationBookIndex;
+    for(unsigned int i = 0;i < reservationIsbn.size(); i ++){
+        reservationBookIndex.push_back(bookTable->searchBookFromID(reservationIsbn[i]));
+    }
     for(unsigned int i=0;i<currentBorrowBook.size();i++){
         currentBookIndex.push_back(bookTable->searchBookFromID(currentBorrowBook[i]->getISBN().data()));
     }
@@ -169,6 +174,7 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
     }
     imodel->setRowCount(booklist.size());
     int tempCountNum = 0;
+    int reservationCountNum=0;
     for(unsigned int i =0;i<booklist.size();i++){//依次在相应位置放入数据
         imodel->setItem(i, 0, new QStandardItem(QString::fromUtf8(booklist[i]->getISBN().data())));
         imodel->setItem(i, 1, new QStandardItem(QString::fromUtf8(booklist[i]->getBookName().data())));
@@ -188,12 +194,22 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
                 tempCountNum++;
             }
         }
-
         else if(flag==1||flag==4){
              borrowBookBtn->setText("续借");
         }
         else
             borrowBookBtn->setText("借书");
+
+        QPushButton *reserveBookBtn=new QPushButton(this);
+        if(flag==0&&reservationBookIndex.size()!=0){
+            if(i != unsigned(reservationBookIndex[reservationCountNum]))reserveBookBtn->setText("预约");
+            else {
+                reserveBookBtn->setText("已预约");
+                reservationCountNum++;
+            }
+        }
+        else
+             reserveBookBtn->setText("预约");
         connect(borrowBookBtn,&QPushButton::clicked,this,[=](){
             if(borrowBookBtn->text()=="借书"){
                 borrowBook(view);
@@ -208,6 +224,18 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
 
         });
 
+        connect(reserveBookBtn,&QPushButton::clicked,this,[=](){
+            if(reserveBookBtn->text()=="预约") {
+                reserveBook(view);
+                showDateTable();
+                reserveBookBtn->setText("已预约");
+            }
+            else{
+                QMessageBox::information(this,"预约" ,"已预约");
+            }
+
+        });
+
         QPushButton *giveBackBookBtn=new QPushButton(this);
         giveBackBookBtn->setText("还书");
         connect(giveBackBookBtn,&QPushButton::clicked,this,[=](){
@@ -217,15 +245,8 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
             showDateTable();
             borrowBookBtn->setText("借书");
         });
-        QPushButton *reserveBookBtn=new QPushButton(this);
-        reserveBookBtn->setText("预约");
-        connect(reserveBookBtn,&QPushButton::clicked,this,[=](){
-            reserveBook(view);
-//            if(flag==4)
-//                view->close();
-            showDateTable();
-            reserveBookBtn->setText("已预约");
-        });
+//        QPushButton *reserveBookBtn=new QPushButton(this);
+
 //        QPushButton *delReserveBookBtn=new QPushButton(this);
 //        delReserveBookBtn->setText("取消预约");
 //        connect(delReserveBookBtn,&QPushButton::clicked,this,[=](){
@@ -341,6 +362,7 @@ void User::reserveBook(QTableView *view){
     else if(flag==0&&borrowflag==4){
         QMessageBox::information(this,"预约","您有逾期未还的书籍，不能预约书！");
     }
+//    view->update();
 }
 
 void User::delReserveBook(QTableView *view){
@@ -349,6 +371,7 @@ void User::delReserveBook(QTableView *view){
     QString borrowBookID=model->data(model->index(index,0)).toString();
     userperson->delReservation(borrowBookID.toStdString());
     QMessageBox::information(this,"预约","已取消预约！");
+//    view->update();
 }
 
 void User::giveBackBook(QTableView *view){

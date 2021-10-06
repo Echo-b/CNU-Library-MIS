@@ -25,7 +25,8 @@ void Adiminster::init(){
     }
 
     this->usertable=new UserTable();
-    if(usertable->readFile("student.txt","teacher.txt")){
+//    if(usertable->readFile("student.txt","teacher.txt")){
+    if(usertable->getStudentTable().size()!=0){
         qDebug()<<"读取成功"<<endl;
         qDebug()<<usertable->getStudentTable().size();
         this->stulist= usertable->getStudentTable();
@@ -634,7 +635,7 @@ void Adiminster::on_batchAppendBook_action_triggered()
     booklist.insert(booklist.end(),appendBookList.begin(),appendBookList.end());
     if(booklist.size()>appendBookList.size()){
         QMessageBox::information(this,"图书追加","批量图书已追加到当前图书之后");
-        bookTable->writeFile("book.txt"); //将追加的图书写入源文件
+//        bookTable->writeFile("book.txt"); //将追加的图书写入源文件
         showDateTable();
     }
     else{
