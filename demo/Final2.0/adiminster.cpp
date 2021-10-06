@@ -10,7 +10,7 @@ Adiminster::Adiminster(QWidget *parent) :
     ui->setupUi(this);
     QIcon *icon = new QIcon(":/image/CNUlibrary.jpg");
     this->setWindowIcon(*icon);
-    this->setFixedSize(1273,900);
+//    this->setFixedSize(1273,900);
     this->setWindowTitle("管理员界面");
     init();
     showDateTable();

@@ -37,6 +37,7 @@ public:
     void showComment();
     void searchRestart(vector <Book*>currentBorrowBook,QTableView *view);
     ~User();
+    int GetReserveStatus(QTableView *view);
 
 private slots:
     void on_actionBorrowTotalBook_triggered();

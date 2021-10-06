@@ -16,7 +16,6 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableView>
@@ -53,7 +52,6 @@ public:
     QWidget *tab_3;
     QTableView *countTableView;
     QCustomPlot *drawPaint;
-    QPushButton *drawBtn;
     QMenuBar *menubar;
     QMenu *menu;
     QMenu *menu_2;
@@ -124,14 +122,11 @@ public:
         drawPaint = new QCustomPlot(tab_3);
         drawPaint->setObjectName(QString::fromUtf8("drawPaint"));
         drawPaint->setGeometry(QRect(110, 10, 1011, 661));
-        drawBtn = new QPushButton(tab_3);
-        drawBtn->setObjectName(QString::fromUtf8("drawBtn"));
-        drawBtn->setGeometry(QRect(1140, 10, 101, 28));
         tabWidget->addTab(tab_3, QString());
         Adiminster->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Adiminster);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1420, 26));
+        menubar->setGeometry(QRect(0, 0, 1420, 23));
         menu = new QMenu(menubar);
         menu->setObjectName(QString::fromUtf8("menu"));
         menu_2 = new QMenu(menubar);
@@ -167,7 +162,7 @@ public:
 
         retranslateUi(Adiminster);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Adiminster);
@@ -199,7 +194,6 @@ public:
         patchAppendUser_action->setText(QCoreApplication::translate("Adiminster", "\346\211\271\351\207\217\350\277\275\345\212\240\347\224\250\346\210\267", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("Adiminster", "\347\224\250\346\210\267\347\225\214\351\235\242", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("Adiminster", "\345\233\276\344\271\246\347\225\214\351\235\242", nullptr));
-        drawBtn->setText(QCoreApplication::translate("Adiminster", "\347\273\230\345\210\266\347\273\237\350\256\241\347\273\223\346\236\234", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("Adiminster", "\347\273\237\350\256\241\347\225\214\351\235\242", nullptr));
         menu->setTitle(QCoreApplication::translate("Adiminster", "\347\224\250\346\210\267\347\256\241\347\220\206", nullptr));
         menu_2->setTitle(QCoreApplication::translate("Adiminster", "\345\233\276\344\271\246\347\256\241\347\220\206", nullptr));

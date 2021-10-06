@@ -90,7 +90,8 @@ void User::layReservationData(vector <Book*>booklist,QTableView *view,int flag){
                 borrowBook(view);
                 if(flag==4||flag==2)
                     view->close();
-                showDateTable();
+                int index=view->currentIndex().row();
+                imodel->setItem(i, 5, new QStandardItem(QString::number(booklist[index]->getBookBorrowOutNum())));
                 borrowBookBtn->setText("已借");
             }
             else{
@@ -106,7 +107,7 @@ void User::layReservationData(vector <Book*>booklist,QTableView *view,int flag){
             delReserveBook(view);
             if(flag==5)
                 view->close();
-            showDateTable();
+
 //            borrowBookBtn->setText("借书");
         });
 
@@ -155,9 +156,7 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
     else if(flag==3){ // 总的借书记录
         headercontent<<"书编号"<<"书名"<<"作者"<<"出版社"<<"书总数"<<"已借出的数量"<<"出版日期"<<"借书时间"<<"还书时间";
     }
-//    else if(flag==5){ // 预约列表
-//        headercontent<<"书编号"<<"书名"<<"作者"<<"出版社"<<"书总数"<<"已借出的数量"<<"出版日期"<<"借书"<<"取消预约";
-//    }
+
     else{ // 新书导读 & 所有书单
          headercontent<<"书编号"<<"书名"<<"作者"<<"出版社"<<"书总数"<<"已借出的数量"<<"出版日期"<<"借书"<<"还书"<<"预约"<<"查看评价";
     }
@@ -215,7 +214,9 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
                 borrowBook(view);
                 if(flag==4||flag==2)
                     view->close();
-                showDateTable();
+                //showDateTable();
+                int index=view->currentIndex().row();
+                imodel->setItem(i, 5, new QStandardItem(QString::number(booklist[index]->getBookBorrowOutNum())));
                 borrowBookBtn->setText("已借");
             }
             else{
@@ -227,8 +228,10 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
         connect(reserveBookBtn,&QPushButton::clicked,this,[=](){
             if(reserveBookBtn->text()=="预约") {
                 reserveBook(view);
-                showDateTable();
-                reserveBookBtn->setText("已预约");
+                if(GetReserveStatus(view)==6){
+                    borrowBookBtn->setText("已借");
+                }
+                else reserveBookBtn->setText("已预约");
             }
             else{
                 QMessageBox::information(this,"预约" ,"已预约");
@@ -242,7 +245,8 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
             giveBackBook(view);
             if(flag==4)
                 view->close();
-            showDateTable();
+            int index=view->currentIndex().row();
+            imodel->setItem(i, 5, new QStandardItem(QString::number(booklist[index]->getBookBorrowOutNum())));
             borrowBookBtn->setText("借书");
         });
 
@@ -338,11 +342,28 @@ void User::borrowBook(QTableView *view){
     }
       bookTable->writeFile("book.txt");
 }
+int User::GetReserveStatus(QTableView *view){
+    int flag=0;
+    int index=view->currentIndex().row();
+    QAbstractItemModel *model = view->model ();
+    QString borrowBookID=model->data(model->index(index,0)).toString();
+    vector<Book*>currentBorrowBook=userperson->getBorrowBook(*bookTable);
+    for(unsigned int i=0;i<currentBorrowBook.size();i++){
+        if(currentBorrowBook[i]->getISBN().data()==borrowBookID){
+            flag=1;
+        }
+    }
+    int borrowflag=userperson->borrowBook(borrowBookID.toStdString(),*bookTable);
+    if(flag==1&&borrowflag==2){
+        return 6;
+    }
+    return 0;
 
+}
 void User::reserveBook(QTableView *view){
     int flag=0;
     int index=view->currentIndex().row();
-    QAbstractItemModel *model = ui->bookDataView->model ();
+    QAbstractItemModel *model = view->model ();
     QString borrowBookID=model->data(model->index(index,0)).toString();
     vector<Book*>currentBorrowBook=userperson->getBorrowBook(*bookTable);
     for(unsigned int i=0;i<currentBorrowBook.size();i++){
