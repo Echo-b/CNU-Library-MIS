@@ -658,7 +658,8 @@ void Adiminster::on_patchAppendUser_action_triggered()
             usertable ->getStudentAccount()->add(stulist[tempnum+i]->getID(),"000000");
         }
         QMessageBox::information(this,"学生追加","批量学生已追加到当前数据表中");
-         usertable->writeFile("student.txt","teacher.txt");
+        usertable->writeFile("student.txt","teacher.txt");
+        usertable->getStudentAccount()->write_file("stuAccount.txt");
         showUserDataTable();
     }
     else{
