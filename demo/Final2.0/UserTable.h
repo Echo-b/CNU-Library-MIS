@@ -25,7 +25,7 @@ public:
     UserTable() {
         stuAccount.read_file("stuAccount.txt");
         teaAccount.read_file("teaAccount.txt");
-        readFile("student.txt", "teacher.txt");
+        //readFile("student.txt", "teacher.txt");
     }
     ~UserTable() {
 //        stuAccount.write_file("stuAccount.txt");

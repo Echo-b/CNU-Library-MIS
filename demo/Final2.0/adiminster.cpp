@@ -25,12 +25,13 @@ void Adiminster::init(){
     }
 
     this->usertable=new UserTable();
-//    if(usertable->readFile("student.txt","teacher.txt")){
-    if(usertable->getStudentTable().size()!=0){
-        qDebug()<<"读取成功"<<endl;
-        qDebug()<<usertable->getStudentTable().size();
-        this->stulist= usertable->getStudentTable();
-        this->tealist=usertable->getTeacherTable();
+    if(usertable->readFile("student.txt","teacher.txt")){
+        if(usertable->getStudentTable().size()!=0){
+            qDebug()<<"读取成功"<<endl;
+            qDebug()<<usertable->getStudentTable().size();
+            this->stulist= usertable->getStudentTable();
+            this->tealist=usertable->getTeacherTable();
+            }
     }
 
 }
@@ -647,13 +648,19 @@ void Adiminster::on_patchAppendUser_action_triggered()
 {
     QString openFileName = QFileDialog::getOpenFileName(this,tr("Open Data"),"",tr("TEXT (*.txt)")); //获取追加的文件名
     vector<Student*>appendStulist;
+    int tempnum = stulist.size();//用来暂时记录添加前的人数，
+    int tempnum2 = 0;//读取后用来记录添加的人数
+
+
+    //stulist.insert(stulist.end(),appendStulist.begin(),appendStulist.end());
     if(usertable->readFile(openFileName.toStdString(),"append_tea.txt")){
-        appendStulist= usertable->getStudentTable();
-    }
-    stulist.insert(stulist.end(),appendStulist.begin(),appendStulist.end());
-    if(stulist.size()>appendStulist.size()){
+        stulist= usertable->getStudentTable();
+        tempnum2 = stulist.size()-tempnum;
+        for(int i = 0;i<tempnum2;i++){
+            usertable ->getStudentAccount()->add(stulist[tempnum+i]->getID(),"000000");
+        }
         QMessageBox::information(this,"学生追加","批量学生已追加到当前数据表中");
-//        usertable->writeFile("student.txt","teacher.txt");
+         usertable->writeFile("student.txt","teacher.txt");
         showUserDataTable();
     }
     else{

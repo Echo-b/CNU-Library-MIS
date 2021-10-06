@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QDialog(parent), ui(new Ui::MainWindow)
 {
     //登录界面
+    userlist.readFile("student.txt","teacher.txt");
     ui->setupUi(this);
     this->setWindowTitle("CNU图书借阅MIS");
     this->setWindowIcon(QIcon(":/image/CNUlibrary.jpg"));

@@ -98,6 +98,7 @@ private:
     Teacher *tea;
     vector <Student*>stulist;
     vector <Teacher*>tealist;
+
                                                                                                                                                                                                                                                                                                                                                                 Adiminster *admin;    //使用的变量定义
 };
 
