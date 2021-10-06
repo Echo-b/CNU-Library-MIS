@@ -13,20 +13,10 @@
   <property name="windowTitle">
    <string>添加图书</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(85, 170, 255);</string>
+  </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="2">
-    <spacer name="horizontalSpacer_26">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>132</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
    <item row="6" column="0" colspan="3">
     <widget class="QWidget" name="widget_4" native="true">
      <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -64,7 +54,11 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLineEdit" name="bookBorrowOutNum"/>
+       <widget class="QLineEdit" name="bookBorrowOutNum">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
       </item>
       <item>
        <spacer name="horizontalSpacer_20">
@@ -81,19 +75,6 @@
       </item>
      </layout>
     </widget>
-   </item>
-   <item row="0" column="0">
-    <spacer name="horizontalSpacer_25">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>132</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
    </item>
    <item row="3" column="0" colspan="3">
     <widget class="QWidget" name="widget_7" native="true">
@@ -132,7 +113,11 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLineEdit" name="bookWriter"/>
+       <widget class="QLineEdit" name="bookWriter">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
       </item>
       <item>
        <spacer name="horizontalSpacer_17">
@@ -187,7 +172,11 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLineEdit" name="bookName"/>
+       <widget class="QLineEdit" name="bookName">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
       </item>
       <item>
        <spacer name="horizontalSpacer_16">
@@ -222,7 +211,11 @@
        </spacer>
       </item>
       <item row="0" column="3">
-       <widget class="QDateEdit" name="bookPublishDate"/>
+       <widget class="QDateEdit" name="bookPublishDate">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
       </item>
       <item row="0" column="4">
        <spacer name="horizontalSpacer_24">
@@ -300,7 +293,11 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLineEdit" name="ISBN"/>
+       <widget class="QLineEdit" name="ISBN">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
       </item>
       <item>
        <spacer name="horizontalSpacer_8">
@@ -355,7 +352,11 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLineEdit" name="bookTotalNum"/>
+       <widget class="QLineEdit" name="bookTotalNum">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
       </item>
       <item>
        <spacer name="horizontalSpacer_19">
@@ -378,6 +379,9 @@
      <layout class="QGridLayout" name="gridLayout_5">
       <item row="0" column="1">
        <widget class="QPushButton" name="pushButton_3">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
         <property name="text">
          <string>取消</string>
         </property>
@@ -411,6 +415,9 @@
       </item>
       <item row="0" column="5">
        <widget class="QPushButton" name="pushButton_2">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
         <property name="text">
          <string>确认</string>
         </property>
@@ -458,24 +465,6 @@
      </layout>
     </widget>
    </item>
-   <item row="0" column="1">
-    <widget class="QWidget" name="widget_9" native="true">
-     <layout class="QGridLayout" name="gridLayout_4">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_9">
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>添加图书界面</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
    <item row="4" column="0" colspan="3">
     <widget class="QWidget" name="widget_8" native="true">
      <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -513,7 +502,11 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLineEdit" name="bookPress"/>
+       <widget class="QLineEdit" name="bookPress">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
       </item>
       <item>
        <spacer name="horizontalSpacer_18">
@@ -568,7 +561,11 @@
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="QLineEdit" name="bookClass"/>
+       <widget class="QLineEdit" name="bookClass">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
       </item>
       <item row="0" column="4">
        <spacer name="horizontalSpacer_21">
@@ -582,6 +579,30 @@
          </size>
         </property>
        </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="3">
+    <widget class="QWidget" name="widget_9" native="true">
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_9">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>添加图书界面</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
