@@ -33,7 +33,7 @@
       </rect>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -89,19 +89,6 @@
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="drawBtn">
-       <property name="geometry">
-        <rect>
-         <x>1140</x>
-         <y>10</y>
-         <width>101</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>绘制统计结果</string>
-       </property>
-      </widget>
      </widget>
     </widget>
    </widget>
@@ -112,7 +99,7 @@
      <x>0</x>
      <y>0</y>
      <width>1420</width>
-     <height>26</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">

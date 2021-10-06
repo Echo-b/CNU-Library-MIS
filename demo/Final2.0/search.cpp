@@ -17,14 +17,20 @@ UserPerson *Search::getUser()
 {
     return user;
 }
-void Search::initUserValue()
+void Search::initUserValue(int flag)
 {
     this->user = new UserPerson();
-    user->setID(QString(ui->ID->text()).toUtf8().toStdString());  //设置ID
-    user->setName(QString(ui->name->text()).toStdString());     //设置姓名
-    user->setGender(QString(ui->gender->text()).toUtf8().toStdString());    //设置性别
-    user->setCollege(QString(ui->college->text()).toUtf8().toStdString());         //设置学院
-    user->setTelphoneNum(QString(ui->telphoneNum->text()).toUtf8().toStdString());     //设置电话号码
+    if(flag==0){
+        user->setID(QString(ui->ID->text()).toUtf8().toStdString());  //设置ID
+        user->setName(QString(ui->name->text()).toStdString());     //设置姓名
+        user->setGender(QString(ui->gender->text()).toUtf8().toStdString());    //设置性别
+        user->setCollege(QString(ui->college->text()).toUtf8().toStdString());         //设置学院
+        user->setTelphoneNum(QString(ui->telphoneNum->text()).toUtf8().toStdString());     //设置电话号码
+    }
+    else{// 做一个初始化，并在search.cpp里判断就行
+        user->setID("*");  //设置ID
+    }
+
 //    user->setborrowBook(QString(ui->borrowedBook->text()).toUtf8().toStdString());     //设置借出书籍
 //    user->setborrowRecord(QString(ui->borrowRecord->text()).toUtf8().toStdString());   //设置借阅记录
 
@@ -44,3 +50,14 @@ void Search::on_pushButton_2_clicked()
 }
 
 
+
+void Search::on_pushButton_clicked()
+{
+    this->initUserValue(1);
+    this->close();
+}
+
+void Search::closeEvent(QCloseEvent *event){
+    this->initUserValue(1);
+    event->accept();
+}

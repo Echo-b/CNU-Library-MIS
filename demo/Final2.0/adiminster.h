@@ -65,8 +65,6 @@ private slots:
 
     void on_actionexit_triggered();
 
-    void on_drawBtn_clicked();
-
     void on_actionchangeAdmin_triggered();
 
     void on_actionborrowBookRanking_triggered();

@@ -305,6 +305,9 @@ void Adiminster::addNewBook(){
     addbook->show();
     addbook->exec();
     book=addbook->getBook();
+    if(book->getISBN()=="*"){
+        return;
+    }
     qDebug()<<book->getBookName().data();
     booklist.push_back(new Book(book->getISBN().data(),book->getBookName().data(),
                                 book->getbookWriterr().data(),book->getBookPress().data(),
@@ -364,6 +367,9 @@ void Adiminster::searchBook(){
     searchbook->exec();
     Book *bookget =new Book;
     bookget=searchbook->getBook();
+    if(bookget->getISBN()=="*"){
+        return;
+    }
     vector <Book*> findbook;
     book=new Book();
     book->setISBN(bookget->getISBN());
@@ -403,6 +409,9 @@ void Adiminster::searchStu(){
     search->exec();
     userperson=search->getUser();
     stu=new Student();
+    if(userperson->getID()=="*"){
+        return;
+    }
     stu->setID(userperson->getID());
     stu->setName(userperson->getName());
     stu->setGender(userperson->getGender());
@@ -439,6 +448,9 @@ void Adiminster::searchTea(){
     search->exec();
     userperson=search->getUser();
     tea=new Teacher();
+    if(userperson->getID()=="*"){
+        return;
+    }
     tea->setID(userperson->getID());
     tea->setName(userperson->getName());
     tea->setGender(userperson->getGender());
@@ -473,6 +485,9 @@ void Adiminster::addNewUser(){
     adduser->show();
     adduser->exec();
     stu=adduser->getStu();
+    if(stu->getID()=="*"){
+        return;
+    }
     //qDebug()<<book->getBookName().data();
     stulist.push_back(new Student(stu->getID(),stu->getName(),
                                       stu->getGender(), stu->getTel(),
@@ -528,27 +543,10 @@ void Adiminster::on_actionexit_triggered()
 //    this->~Adiminster();
 }
 
-void Adiminster::on_drawBtn_clicked()//绘制统计结果或者展示统计数据
-{
-
-    QVector<double> fossilData, nuclearData;
-    QVector<double>gender,topten;
-    fossilData<<1.0<<2.3<<3.4<<6.7<<4.3<<4;
-    nuclearData<<1.0<<3<<6.4<<6.5<<4.3<<8;
-    topten=usertable->sortUserCollege();
-    gender=usertable->sortGender();
-    QVector<UserPerson*>user=usertable->sortUserBorrowNum();
-    QVector<Book*>bookRecord=bookTable->sortBorrowTimes();
-    qDebug()<<gender<<"*****"<<topten;
-    qDebug()<<user[0]->getID().data();
-    qDebug()<<bookRecord[0]->getISBN().data();
-    Paint paint;
-    paint.Draw(ui->drawPaint,topten);
-
-}
 
 void Adiminster::on_actionchangeAdmin_triggered()
 {
+    this->close();
     MainWindow *switchAcoount=new MainWindow;
     switchAcoount->show();
     switchAcoount->exec();

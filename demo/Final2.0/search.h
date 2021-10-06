@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QIcon>
+#include <QCloseEvent>
 #include "UserPerson.h"
 namespace Ui
 {
@@ -16,7 +17,8 @@ class Search : public QDialog
 public:
     explicit Search(QWidget *parent = nullptr);
     UserPerson *getUser();
-       void initUserValue();
+       void initUserValue(int flag=0);
+       void closeEvent(QCloseEvent *event);
     ~Search();
 
 private:
@@ -24,6 +26,7 @@ private:
     UserPerson *user;
   private slots:
     void on_pushButton_2_clicked();
+    void on_pushButton_clicked();
 };
 
 #endif // SEARCH_H

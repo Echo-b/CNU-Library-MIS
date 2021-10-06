@@ -77,7 +77,7 @@ public:
     QGridLayout *gridLayout_5;
     QSpacerItem *horizontalSpacer_5;
     QPushButton *pushButton;
-    QSpacerItem *horizontalSpacer_6;
+    QPushButton *pushButton_2;
 
     void setupUi(QDialog *SearchBook)
     {
@@ -289,16 +289,17 @@ public:
         gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
         horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_5->addItem(horizontalSpacer_5, 0, 0, 1, 1);
+        gridLayout_5->addItem(horizontalSpacer_5, 0, 1, 1, 1);
 
         pushButton = new QPushButton(widget_5);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
-        gridLayout_5->addWidget(pushButton, 0, 1, 1, 1);
+        gridLayout_5->addWidget(pushButton, 0, 2, 1, 1);
 
-        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        pushButton_2 = new QPushButton(widget_5);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
 
-        gridLayout_5->addItem(horizontalSpacer_6, 0, 2, 1, 1);
+        gridLayout_5->addWidget(pushButton_2, 0, 0, 1, 1);
 
 
         gridLayout_2->addWidget(widget_5, 7, 0, 1, 2);
@@ -320,6 +321,7 @@ public:
         label_3->setText(QCoreApplication::translate("SearchBook", "\344\271\246\347\261\215\345\210\206\347\261\273      ", nullptr));
         label_2->setText(QCoreApplication::translate("SearchBook", "\344\271\246\347\261\215\345\207\272\347\211\210\346\227\245\346\234\237  ", nullptr));
         pushButton->setText(QCoreApplication::translate("SearchBook", "\346\237\245\346\211\276", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("SearchBook", "\345\217\226\346\266\210", nullptr));
     } // retranslateUi
 
 };

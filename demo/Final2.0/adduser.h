@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QIcon>
+#include <QCloseEvent>
 #include "user.h"
 #include "UserPerson.h"
 #include "Student.h"
@@ -19,12 +20,15 @@ class AddUser : public QDialog
 public:
     explicit AddUser(QWidget *parent = nullptr);
     Student *getStu();
-    void initStuValue();
+    void initStuValue(int flag=0);
     Teacher *getTea();
-    void initTeaValue();
+    void initTeaValue(int flag=0);
+    void closeEvent(QCloseEvent *event);
     ~AddUser();
 private slots:
     void on_pushButton_2_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::AddUser *ui;

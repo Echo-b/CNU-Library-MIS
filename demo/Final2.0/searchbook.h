@@ -3,6 +3,7 @@
 
 #include "book.h"
 #include <QDialog>
+#include <QCloseEvent>
 #include <QIcon>
 namespace Ui
 {
@@ -16,7 +17,8 @@ class SearchBook : public QDialog
 public:
     explicit SearchBook(QWidget *parent = nullptr);
     Book *getBook();
-    void initBookValue();
+    void initBookValue(int flag=0);
+    void closeEvent(QCloseEvent* event);
     ~SearchBook();
 
 private:
@@ -24,6 +26,7 @@ private:
     Book *book;
 private slots:
     void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
 };
 
 #endif // SEARCHBOOK_H

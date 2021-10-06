@@ -104,7 +104,9 @@ public:
         label_2 = new QLabel(widget_2);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         QFont font;
-        font.setPointSize(12);
+        font.setPointSize(14);
+        font.setBold(true);
+        font.setWeight(75);
         label_2->setFont(font);
 
         gridLayout_3->addWidget(label_2, 0, 1, 1, 1);
@@ -126,6 +128,12 @@ public:
 
         label_6 = new QLabel(widget_6);
         label_6->setObjectName(QString::fromUtf8("label_6"));
+        QFont font1;
+        font1.setPointSize(12);
+        font1.setBold(true);
+        font1.setWeight(75);
+        label_6->setFont(font1);
+        label_6->setLineWidth(1);
 
         horizontalLayout_6->addWidget(label_6);
 
@@ -155,6 +163,7 @@ public:
 
         label = new QLabel(widget);
         label->setObjectName(QString::fromUtf8("label"));
+        label->setFont(font1);
 
         horizontalLayout->addWidget(label);
 
@@ -184,6 +193,7 @@ public:
 
         label_7 = new QLabel(widget_7);
         label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setFont(font1);
 
         horizontalLayout_7->addWidget(label_7);
 
@@ -213,6 +223,7 @@ public:
 
         label_8 = new QLabel(widget_8);
         label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setFont(font1);
 
         horizontalLayout_8->addWidget(label_8);
 
@@ -242,6 +253,7 @@ public:
 
         label_5 = new QLabel(widget_5);
         label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setFont(font1);
 
         horizontalLayout_5->addWidget(label_5);
 
@@ -271,6 +283,7 @@ public:
 
         label_4 = new QLabel(widget_4);
         label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setFont(font1);
 
         horizontalLayout_4->addWidget(label_4);
 
@@ -304,6 +317,7 @@ public:
 
         label_3 = new QLabel(widget_3);
         label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setFont(font1);
 
         gridLayout->addWidget(label_3, 0, 1, 1, 1);
 
@@ -325,11 +339,15 @@ public:
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         pushButton_2 = new QPushButton(widget_9);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setFont(font1);
 
         gridLayout_2->addWidget(pushButton_2, 0, 2, 1, 1);
 
         pushButton = new QPushButton(widget_9);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        QFont font2;
+        font2.setPointSize(12);
+        pushButton->setFont(font2);
 
         gridLayout_2->addWidget(pushButton, 0, 0, 1, 1);
 
