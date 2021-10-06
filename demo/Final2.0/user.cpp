@@ -159,7 +159,7 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
 //        headercontent<<"书编号"<<"书名"<<"作者"<<"出版社"<<"书总数"<<"已借出的数量"<<"出版日期"<<"借书"<<"取消预约";
 //    }
     else{ // 新书导读 & 所有书单
-         headercontent<<"书编号"<<"书名"<<"作者"<<"出版社"<<"书总数"<<"已借出的数量"<<"出版日期"<<"借书"<<"还书"<<"预约";
+         headercontent<<"书编号"<<"书名"<<"作者"<<"出版社"<<"书总数"<<"已借出的数量"<<"出版日期"<<"借书"<<"还书"<<"预约"<<"查看评价";
     }
 
     imodel->setHorizontalHeaderLabels(headercontent);
@@ -170,7 +170,7 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
         imodel->setColumnCount(11);
     }
     else{
-        imodel->setColumnCount(10);
+        imodel->setColumnCount(11);
     }
     imodel->setRowCount(booklist.size());
     int tempCountNum = 0;
@@ -245,18 +245,13 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
             showDateTable();
             borrowBookBtn->setText("借书");
         });
-//        QPushButton *reserveBookBtn=new QPushButton(this);
 
-//        QPushButton *delReserveBookBtn=new QPushButton(this);
-//        delReserveBookBtn->setText("取消预约");
-//        connect(delReserveBookBtn,&QPushButton::clicked,this,[=](){
-//            delReserveBook(view);
-//            if(flag==5)
-//                view->close();
-//            reserveBookBtn->setText("预约");
-//            showDateTable();
-//            borrowBookBtn->setText("借书");
-//        });
+        QPushButton *showCommentBtn=new QPushButton(this);
+        showCommentBtn->setText("查看评价");
+        connect(showCommentBtn,&QPushButton::clicked,this,[=](){
+            showComment();
+        });
+
         if(flag==1||flag==4){
             view->setIndexWidget(imodel->index(i, 7), borrowBookBtn);
             view->setIndexWidget(imodel->index(i, 8), giveBackBookBtn);
@@ -265,6 +260,7 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
             view->setIndexWidget(imodel->index(i, 7), borrowBookBtn);
             view->setIndexWidget(imodel->index(i, 8), giveBackBookBtn);
             view->setIndexWidget(imodel->index(i, 9), reserveBookBtn);
+            view->setIndexWidget(imodel->index(i, 10), showCommentBtn);
         }
         else {
             imodel->setItem(i, 7, new QStandardItem(QString(userperson->getBorrowInfor()[i].getBorrowTime().toString("yyyy-MM-dd"))));
@@ -274,10 +270,6 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
             imodel->setItem(i, 9, new QStandardItem(QString(userperson->getBorrowInfor()[i].getBorrowTime().toString("yyyy-MM-dd"))));
             imodel->setItem(i, 10, new QStandardItem(QString(userperson->getBorrowInfor()[i].getReturnTime().toString("yyyy-MM-dd"))));
         }
-//        if(flag==5){
-//            view->setIndexWidget(imodel->index(i, 7), borrowBookBtn);
-//            view->setIndexWidget(imodel->index(i, 8), delReserveBookBtn);
-//        }
     }
     view->setColumnWidth(1,145);
     view->setColumnWidth(3,145);
@@ -286,6 +278,16 @@ void User::layData(vector <Book*>booklist,QTableView *view,int flag){
 void User::showDateTable(){
 
     layData(booklist,ui->bookDataView,0);
+}
+
+void User::commentBook(){
+    QString info = QInputDialog::getMultiLineText(this, " 评价", "说点什么吧！");
+//    book->WriteComment(info.toStdString());
+}
+
+void User::showComment(){
+    QString comment = "haohaohaoaa";
+    QMessageBox::information(this,"评价",""+comment);
 }
 
 void User::borrowBook(QTableView *view){
@@ -395,6 +397,7 @@ void User::giveBackBook(QTableView *view){
         bookTable->getBookTable()[locate]->setBookBorrowOutNum(--currentNum);
         userperson->giveBackBook(givebackBookID.toStdString(),*bookTable);
         QMessageBox::information(this,"还书","还书成功");
+        commentBook();
     }
     bookTable->writeFile("book.txt");
 }

@@ -33,6 +33,8 @@ public:
     void giveBackBook(QTableView *view);
     void reserveBook(QTableView *view);
     void delReserveBook(QTableView *view);
+    void commentBook();
+    void showComment();
     void searchRestart(vector <Book*>currentBorrowBook,QTableView *view);
     ~User();
 
