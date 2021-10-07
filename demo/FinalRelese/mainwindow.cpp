@@ -68,16 +68,6 @@ void MainWindow::on_pushButton_2_clicked() //注册
     qDebug() << newpeople->getClassID().data();
     if (newpeople->getID() != "" && people->getPassword() != "" && newpeople->getTel() != "" && newpeople->getName() != "" && newpeople->getGender() != "" && newpeople->getCollege() != "" && newpeople->getClassID() != "")
     {
-        //        if(ui->checkBoxAdmin_2->isChecked()==true){
-        //            adminGroup.add(people->getAccount(),people->getPassword());
-        //            AdiminsterPerson admin(newpeople->getID(), newpeople->getName(), newpeople->getGender(), newpeople->getTel());
-        //            adminlist.addAdmin(admin);
-        //            QMessageBox message(QMessageBox::Information, "提示","<font color=' black'>注册成功！</font>");
-        //            QIcon *icon = new QIcon(":/image/CNUlibrary.jpg");
-        //            message.setWindowIcon(*icon);
-        //            message.exec();
-        //            adminlist.writeFile("admin.txt");
-        //        }
         if (ui->checkBoxTea_2->isChecked() == true)
         {
             Teacher t;
@@ -90,7 +80,6 @@ void MainWindow::on_pushButton_2_clicked() //注册
 
             if (userlist.addTeacher(t))
             {
-                //                QMessageBox::information(this,"注册","注册成功");
                 qDebug() << "teacherTable[167] addr: ";
                 qDebug() << userlist.getStudentTable()[167];
                 userlist.getTeacherAccount()->add(people->getAccount(), people->getPassword());
@@ -99,6 +88,7 @@ void MainWindow::on_pushButton_2_clicked() //注册
                 message.setWindowIcon(*icon);
                 message.exec();
                 userlist.writeFile("student.txt", "teacher.txt");
+                userlist.getTeacherAccount()->write_file("stuAccount.txt");
             }
             else
             {
@@ -125,6 +115,7 @@ void MainWindow::on_pushButton_2_clicked() //注册
                 QIcon *icon = new QIcon(":/image/CNUlibrary.jpg");
                 message.setWindowIcon(*icon);
                 message.exec();
+                userlist.getStudentAccount()->write_file("stuAccount.txt");
                 userlist.writeFile("student.txt", "teacher.txt");
             }
             else

@@ -308,7 +308,7 @@ void User::showComment(){
 void User::borrowBook(QTableView *view){
     int flag=0;
     int index=view->currentIndex().row();
-    QAbstractItemModel *model = ui->bookDataView->model ();
+    QAbstractItemModel *model = view->model ();
     QString borrowBookID=model->data(model->index(index,0)).toString();
     qDebug()<<borrowBookID;
     vector<Book*>currentBorrowBook=userperson->getBorrowBook(*bookTable);
@@ -431,7 +431,7 @@ void User::giveBackBook(QTableView *view){
         QMessageBox::information(this,"还书","还书成功");
         commentBook();
     }
-    bookTable->writeFile("book.txt");
+//    bookTable->writeFile("book.txt");
 }
 void User::searchRestart(vector <Book*>currentBorrowBook,QTableView *view){
     view->resize(1415,760);

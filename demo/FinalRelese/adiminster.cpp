@@ -489,9 +489,11 @@ void Adiminster::addNewUser(){
         return;
     }
     //qDebug()<<book->getBookName().data();
+    int tempnum =stulist.size();
     stulist.push_back(new Student(stu->getID(),stu->getName(),
                                       stu->getGender(), stu->getTel(),
                                       stu->getCollege(), stu->getClassID()));
+    usertable ->getStudentAccount()->add(stulist[tempnum]->getID(),"000000");
 }
 Adiminster::~Adiminster()
 {
